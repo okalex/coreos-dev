@@ -2,22 +2,22 @@
 # To automatically replace the discovery token on 'vagrant up', uncomment
 # the lines below:
 
-if File.exists?('user-data') && ARGV[0].eql?('up')
-  require 'open-uri'
-  require 'yaml'
+#if File.exists?('user-data') && ARGV[0].eql?('up')
+  #require 'open-uri'
+  #require 'yaml'
  
-  token = open('https://discovery.etcd.io/new').read
+  #token = open('https://discovery.etcd.io/new').read
  
-  data = YAML.load(IO.readlines('user-data')[1..-1].join)
-  data['coreos']['etcd']['discovery'] = token
+  #data = YAML.load(IO.readlines('user-data')[1..-1].join)
+  #data['coreos']['etcd']['discovery'] = token
  
-  lines = YAML.dump(data).split("\n")
-  lines[0] = '#cloud-config'
+  #lines = YAML.dump(data).split("\n")
+  #lines[0] = '#cloud-config'
  
-  open('user-data', 'r+') do |f|
-    f.puts(lines.join("\n"))
-  end
-end
+  #open('user-data', 'r+') do |f|
+    #f.puts(lines.join("\n"))
+  #end
+#end
 
 
 # coreos-vagrant is configured through a series of configuration
